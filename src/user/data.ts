@@ -1,0 +1,5 @@
+import { User } from "./interfaces/user.interface";
+
+export const users: User[] = [
+    { name: 'English', email: 'admin@gmail.com', password: '123123' },
+];
