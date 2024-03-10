@@ -8,21 +8,6 @@ import * as bcrypt from 'bcrypt';
 
 @Injectable()
 export class UserService {
-  private readonly users = [
-    {
-      id: 1,
-      name: 'john',
-      email: 'gundamakp01@gmail.com',
-      password: '123123',
-    },
-    {
-      id: 2,
-      name: 'maria',
-      email: 'maria@gmail.com',
-      password: 'guess',
-    },
-  ];
-
   constructor(
     @InjectRepository(User)
     private usersRepository: Repository<User>,
@@ -37,8 +22,8 @@ export class UserService {
   }
 
   async findOneByEmail(email: string): Promise<User | undefined> {
-    // return this.usersRepository.findOneBy({ id });
-    return this.users.find((user) => user.email === email);
+    return this.usersRepository.findOne({ where: { email: email } });
+    
   }
 
   async findOne(id: number): Promise<User | undefined> {

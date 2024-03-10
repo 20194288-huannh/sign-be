@@ -3,6 +3,7 @@ import { UserSeederModule } from "./user/user.module";
 import { Seeder } from "./seeder";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import { User } from "src/user/entities/user.entity";
+import { SignatureDocument } from "src/signature-document/entities/signature-document.entity";
 
 /**
  * Import and provide seeder classes.
@@ -18,7 +19,7 @@ import { User } from "src/user/entities/user.entity";
             username: 'root',
             password: 'root',
             database: 'sign-db',
-            entities: [User],
+            entities: [User, SignatureDocument],
             synchronize: true,
         }),
     ],
